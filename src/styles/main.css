@@ -1,6 +1,7 @@
 :root {
   --bg-color: #3a4663;
   --display-tx-color: #fff;
+  --display-bg-color: #181f33;
   --calculator-bg-color: #242d44;
   --especial-btn-bg-color: #d03f2f;
 }
@@ -99,4 +100,22 @@ body {
   height: 16px;
   border-radius: 50%;
   background-color: var(--especial-btn-bg-color);
+}
+
+.main-display {
+  margin-top: 31px;
+  background-color: var(--display-bg-color);
+  height: 128px;
+  border-radius: 10px;
+  padding: 40px 32px 36px;
+}
+
+.main-display__text {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 52px;
+  text-align: right;
+  letter-spacing: -0.933333px;
+  color: var(--display-tx-color);
 }
