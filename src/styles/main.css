@@ -82,6 +82,8 @@ body {
 }
 
 .info-container__switch {
+  all: unset;
+  box-sizing: border-box;
   width: 71px;
   height: 26px;
   border-radius: 13px;
