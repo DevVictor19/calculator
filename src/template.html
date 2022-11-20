@@ -4,9 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <title>Calculator</title>
   </head>
-  <body>
-    <h1 class="test">Wepack on!</h1>
+  <body class="content">
+    <main class="calculator">
+      <div class="info-container">
+        <h1 class="info-container__title">calc</h1>
+        <div class="info-container__actions">
+          <h2 class="info-container__actions-title">THEME</h2>
+          <div class="info-container__switch-wrapper">
+            <div class="info-container__switch-labels">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+            <div id="switch" class="info-container__switch" role="button">
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

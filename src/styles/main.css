@@ -1,8 +1,102 @@
-body {
-  background-color: rebeccapurple;
-  height: 100vh;
+:root {
+  --bg-color: #3a4663;
+  --display-tx-color: #fff;
+  --calculator-bg-color: #242d44;
+  --especial-btn-bg-color: #d03f2f;
 }
 
-.test {
-  background-color: red;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "League Spartan", sans-serif;
+}
+
+.content {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--bg-color);
+}
+
+.calculator {
+  max-width: 540px;
+  width: 100%;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: var(--display-tx-color);
+}
+
+.info-container__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: -0.533333px;
+}
+
+.info-container__actions {
+  display: flex;
+  align-items: flex-end;
+  gap: 26px;
+}
+
+.info-container__actions-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.info-container__switch-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.info-container__switch-labels {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 13px;
+}
+
+.info-container__switch {
+  width: 71px;
+  height: 26px;
+  border-radius: 13px;
+  background-color: var(--calculator-bg-color);
+  padding: 0 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.info-container__switch span {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--especial-btn-bg-color);
 }
