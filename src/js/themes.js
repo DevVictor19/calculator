@@ -1,0 +1,58 @@
+const grayTheme = {
+  "--bg-color": "#3a4663",
+  "--display-tx-color": "#fff",
+  "--display-bg-color": "#181f33",
+  "--calculator-bg-color": "#242d44",
+  "--special-btn-bg-color": "#d03f2f",
+  "--special-btn-tx-color": "#ffffff",
+  "--special-btn-sh-color": "#93261a",
+  "--special-btn-ho-color": "#f96b5b",
+  "--normal-btn-bg-color": "#eae3dc",
+  "--normal-btn-ho-color": "#fffffe",
+  "--normal-btn-sh-color": "#b3a497",
+  "--normal-btn-tx-color": "#434a59",
+  "--erase-btn-bg-color": "#647198",
+  "--erase-btn-ho-color": "#a2b2e1",
+  "--erase-btn-sh-color": "#414e73",
+  "--erase-btn-tx-color": "#ffffff",
+};
+
+const whiteTheme = {
+  "--bg-color": "#E6E6E6",
+  "--display-tx-color": "#36362C",
+  "--display-bg-color": "#EEEEEE",
+  "--calculator-bg-color": "#D2CDCD",
+  "--special-btn-bg-color": "#C85402",
+  "--special-btn-tx-color": "#FFFFFF",
+  "--special-btn-sh-color": "#873901",
+  "--special-btn-ho-color": "#FF8A38",
+  "--normal-btn-bg-color": "#E5E4E1",
+  "--normal-btn-ho-color": "#FFFFFF",
+  "--normal-btn-sh-color": "#A79E91",
+  "--normal-btn-tx-color": "#36362C",
+  "--erase-btn-bg-color": "#378187",
+  "--erase-btn-ho-color": "#62B5BC",
+  "--erase-btn-sh-color": "#1B6066",
+  "--erase-btn-tx-color": "#FFFFFF",
+};
+
+const neonTheme = {
+  "--bg-color": "#17062A",
+  "--display-tx-color": "#FFE53D",
+  "--display-bg-color": "#1E0936",
+  "--calculator-bg-color": "#1E0936",
+  "--special-btn-bg-color": "#00DED0",
+  "--special-btn-tx-color": "#1A2327",
+  "--special-btn-sh-color": "#6CF9F1",
+  "--special-btn-ho-color": "#93FFF8",
+  "--normal-btn-bg-color": "#331C4D",
+  "--normal-btn-ho-color": "#6C34AC",
+  "--normal-btn-sh-color": "#881C9E",
+  "--normal-btn-tx-color": "#FFE53D",
+  "--erase-btn-bg-color": "#56077C",
+  "--erase-btn-ho-color": "#8631AF",
+  "--erase-btn-sh-color": "#BE15F4",
+  "--erase-btn-tx-color": "#FFFFFF",
+};
+
+export const themes = [grayTheme, whiteTheme, neonTheme];
