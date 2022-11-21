@@ -1,5 +1,7 @@
 import { themes } from "./themes";
 
+export let currentThemeIndex = Number(localStorage.getItem("lastIndexTheme"));
+
 export function setTheme(index) {
   const selectedTheme = themes[index];
 
@@ -7,8 +9,6 @@ export function setTheme(index) {
     document.documentElement.style.setProperty(prop, selectedTheme[prop]);
   }
 }
-
-let currentThemeIndex = 0;
 
 export function switchToNextTheme() {
   const maxThemeIndex = themes.length - 1;
@@ -20,6 +20,4 @@ export function switchToNextTheme() {
   }
 
   setTheme(currentThemeIndex);
-
-  return currentThemeIndex;
 }

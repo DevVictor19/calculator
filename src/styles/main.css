@@ -1,22 +1,3 @@
-:root {
-  --bg-color: #3a4663;
-  --display-tx-color: #fff;
-  --display-bg-color: #181f33;
-  --calculator-bg-color: #242d44;
-  --special-btn-bg-color: #d03f2f;
-  --special-btn-tx-color: #ffffff;
-  --special-btn-sh-color: #93261a;
-  --special-btn-ho-color: #f96b5b;
-  --normal-btn-bg-color: #eae3dc;
-  --normal-btn-ho-color: #fffffe;
-  --normal-btn-sh-color: #b3a497;
-  --normal-btn-tx-color: #434a59;
-  --erase-btn-bg-color: #647198;
-  --erase-btn-ho-color: #a2b2e1;
-  --erase-btn-sh-color: #414e73;
-  --erase-btn-tx-color: #ffffff;
-}
-
 * {
   margin: 0;
   padding: 0;
