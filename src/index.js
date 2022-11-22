@@ -6,7 +6,7 @@ import {
   currentThemeIndex,
 } from "./js/themeSwitch";
 
-const switcher = document.getElementById("switch");
+const switcher = document.getElementById("switcher");
 
 // switcher click event
 switcher.addEventListener("click", () => {
