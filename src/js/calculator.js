@@ -18,7 +18,7 @@ function deleteCharFromDisplay() {
 function handleOperators(value) {
   const updatedDisplayText = displayText.innerText + value;
 
-  const hasConsecutiveOperators = /[\+\-\.\x\/]{2,}/.test(updatedDisplayText);
+  const hasConsecutiveOperators = /[\+\-\x\/]{2,}/.test(updatedDisplayText);
   const isTheFirstChar = updatedDisplayText.length === 1;
 
   if (hasConsecutiveOperators || isTheFirstChar) return;
