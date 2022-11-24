@@ -6,6 +6,8 @@ import {
   currentThemeIndex,
 } from "./js/themeSwitch";
 
+import { handleBtnInputValue } from "./js/calculator";
+
 const switcher = document.getElementById("switcher");
 
 // switcher click event
@@ -29,4 +31,12 @@ function setSwitcherBtnPositon(index) {
 window.addEventListener("load", () => {
   setTheme(currentThemeIndex);
   setSwitcherBtnPositon(currentThemeIndex);
+});
+
+const calculatorBody = document.getElementById("calculatorBody");
+
+calculatorBody.addEventListener("click", (e) => {
+  if (e.target === calculatorBody) return;
+
+  handleBtnInputValue(e.target.innerText);
 });
