@@ -1,7 +1,7 @@
 const displayText = document.getElementById("displayText");
 
 function insertOnDisplay(value) {
-  displayText.innerText += value;
+  displayText.innerHTML += value;
 }
 
 function resetAllFromDisplay() {
@@ -15,6 +15,11 @@ function deleteCharFromDisplay() {
   );
 }
 
+function handleEquals() {
+  const result = eval(displayText.innerText.replace("x", "*"));
+  displayText.innerText = result;
+}
+
 function handleOperators(value) {
   const updatedDisplayText = displayText.innerText + value;
 
@@ -23,7 +28,7 @@ function handleOperators(value) {
 
   if (hasConsecutiveOperators || isTheFirstChar) return;
 
-  insertOnDisplay(value);
+  insertOnDisplay(` ${value} `);
 }
 
 function handleDecimalDot(value) {
@@ -31,9 +36,16 @@ function handleDecimalDot(value) {
 
   const hasTwoDotsInSameNumber = /\d+\.\d+\./.test(updatedDisplayText);
   const hasConsecutiveDots = /\.{2,}/.test(updatedDisplayText);
+  const startsWithDot = /\D\./.test(updatedDisplayText);
   const isTheFirstChar = updatedDisplayText.length === 1;
 
-  if (hasTwoDotsInSameNumber || hasConsecutiveDots || isTheFirstChar) return;
+  if (
+    hasTwoDotsInSameNumber ||
+    hasConsecutiveDots ||
+    startsWithDot ||
+    isTheFirstChar
+  )
+    return;
 
   insertOnDisplay(value);
 }
@@ -46,6 +58,11 @@ export function handleBtnInputValue(value) {
 
   if (value === "DEL") {
     deleteCharFromDisplay();
+    return;
+  }
+
+  if (value === "=") {
+    handleEquals();
     return;
   }
 
