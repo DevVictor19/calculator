@@ -1,6 +1,10 @@
 const displayText = document.getElementById("displayText");
 
 function insertOnDisplay(value) {
+  let maxLength = window.innerWidth > 540 ? 15 : 10;
+
+  if (displayText.innerHTML.length >= maxLength) return;
+
   displayText.innerHTML += value;
 }
 
@@ -28,7 +32,7 @@ function handleOperators(value) {
 
   if (hasConsecutiveOperators || isTheFirstChar) return;
 
-  insertOnDisplay(` ${value} `);
+  insertOnDisplay(value);
 }
 
 function handleDecimalDot(value) {

@@ -107,6 +107,7 @@ body {
   height: 128px;
   border-radius: 10px;
   padding: 40px 32px 36px;
+  overflow: hidden;
 }
 
 .main-display__text {
