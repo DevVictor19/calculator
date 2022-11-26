@@ -1,11 +1,19 @@
+import { splitExpression } from "./utils/splitExpression";
+import { clearZerosBeforeDigits } from "./utils/clearZerosBeforeDigits";
+
 const displayText = document.getElementById("displayText");
 
-function insertOnDisplay(value) {
+function appendOnDisplay(value) {
   let maxLength = window.innerWidth > 540 ? 15 : 10;
+  const displayTextLength = displayText.innerHTML.length;
 
-  if (displayText.innerHTML.length >= maxLength) return;
+  if (displayTextLength >= maxLength) return;
 
-  displayText.innerHTML += value;
+  const expression = displayText.innerText + value;
+
+  displayText.innerText = splitExpression(expression)
+    .map(clearZerosBeforeDigits)
+    .join("");
 }
 
 function resetAllFromDisplay() {
@@ -20,19 +28,19 @@ function deleteCharFromDisplay() {
 }
 
 function handleEquals() {
-  const result = eval(displayText.innerText.replace("x", "*"));
-  displayText.innerText = result;
+  const expression = displayText.innerText.replace("x", "*");
+
+  displayText.innerText = eval(expression);
 }
 
 function handleOperators(value) {
   const updatedDisplayText = displayText.innerText + value;
 
   const hasConsecutiveOperators = /[\+\-\x\/]{2,}/.test(updatedDisplayText);
-  const isTheFirstChar = updatedDisplayText.length === 1;
 
-  if (hasConsecutiveOperators || isTheFirstChar) return;
+  if (hasConsecutiveOperators) return;
 
-  insertOnDisplay(value);
+  appendOnDisplay(value);
 }
 
 function handleDecimalDot(value) {
@@ -51,7 +59,7 @@ function handleDecimalDot(value) {
   )
     return;
 
-  insertOnDisplay(value);
+  appendOnDisplay(value);
 }
 
 export function handleBtnInputValue(value) {
@@ -80,5 +88,5 @@ export function handleBtnInputValue(value) {
     return;
   }
 
-  insertOnDisplay(value);
+  appendOnDisplay(value);
 }

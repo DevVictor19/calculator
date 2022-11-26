@@ -1,24 +1,20 @@
-export function splitExpression(expressionStr) {
-  let lasWasOperator = false;
-  const expressionParts = [];
+export function splitExpression(expression) {
+  const parts = [];
   let currentIndex = 0;
 
-  for (let char of expressionStr) {
-    if (lasWasOperator) currentIndex++;
-
+  for (let char of expression) {
+    // se não for operador
     if (!/[\+\-\x\/]/.test(char)) {
-      lasWasOperator = false;
-      if (expressionParts[currentIndex]) {
-        expressionParts[currentIndex] += char;
+      if (parts[currentIndex]) {
+        parts[currentIndex] += char;
       } else {
-        expressionParts.push(char);
+        parts.push(char);
       }
     } else {
-      currentIndex++;
-      lasWasOperator = true;
-      expressionParts.push(char);
+      parts.push(char);
+      currentIndex = parts.length;
     }
   }
 
-  console.log(expressionParts);
+  return parts;
 }
