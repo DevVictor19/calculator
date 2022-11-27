@@ -1,16 +1,10 @@
 # Calculator
 
----
-
 ## Calculadora simples utilizando javaScript, com a opção de trocar temas.
-
----
 
 ### Aplicação no ar:
 
 - https://devictor-js-calculator.netlify.app/
-
----
 
 ### Preview:
 
