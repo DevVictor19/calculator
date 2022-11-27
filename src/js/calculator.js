@@ -30,7 +30,16 @@ function deleteCharFromDisplay() {
 function handleEquals() {
   const expression = displayText.innerText.replace("x", "*");
 
-  displayText.innerText = eval(expression);
+  if (/[\+\-\*\/]/.test(expression) && expression.length === 1) return;
+
+  const result = eval(expression);
+
+  if (result === Infinity) {
+    alert("Não é possível dividir por 0");
+    return;
+  }
+
+  displayText.innerText = result;
 }
 
 function handleOperators(value) {
