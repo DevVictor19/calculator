@@ -6,6 +6,7 @@
 
 body {
   font-family: "League Spartan", sans-serif;
+  padding: 0 24px;
 }
 
 .content {
@@ -129,6 +130,7 @@ body {
   gap: 24px;
   grid-template-columns: repeat(4, minmax(60px, 101px));
   grid-template-rows: repeat(5, 64px);
+  justify-content: center;
 }
 
 .calculator-body__btn {
@@ -214,4 +216,44 @@ body {
 
 .calculator-body__equals:hover {
   background-color: var(--special-btn-ho-color);
+}
+
+@media screen and (max-width: 480px) {
+  .main-display {
+    height: 88px;
+    padding: 30px 24px 22px;
+    margin-top: 35px;
+  }
+
+  .main-display__text {
+    font-size: 40px;
+    line-height: 37px;
+    letter-spacing: -0.666667px;
+  }
+
+  .calculator-body {
+    padding: 24px;
+    gap: 13px;
+  }
+
+  .calculator-body__btn,
+  .calculator-body__del,
+  .calculator-body__equals,
+  .calculator-body__reset {
+    border-radius: 5px;
+  }
+
+  .calculator-body__btn {
+    font-size: 32px;
+    line-height: 29px;
+    letter-spacing: -0.533333px;
+  }
+
+  .calculator-body__del,
+  .calculator-body__equals,
+  .calculator-body__reset {
+    font-size: 20px;
+    line-height: 18px;
+    letter-spacing: -0.333333px;
+  }
 }
