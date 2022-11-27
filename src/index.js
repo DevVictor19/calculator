@@ -8,12 +8,18 @@ import {
 
 import { handleBtnInputValue } from "./js/calculator";
 
+import {
+  playBtnSoundEffect,
+  playSwitchThemeSoundEffect,
+} from "./js/playSoundEffects";
+
 const switcher = document.getElementById("switcher");
 
 // switcher click event
 switcher.addEventListener("click", () => {
   switchToNextTheme();
   setSwitcherBtnPositon(currentThemeIndex);
+  playSwitchThemeSoundEffect();
   localStorage.setItem("lastIndexTheme", currentThemeIndex);
 });
 
@@ -39,4 +45,6 @@ calculatorBody.addEventListener("click", (e) => {
   if (e.target === calculatorBody) return;
 
   handleBtnInputValue(e.target.innerText);
+
+  playBtnSoundEffect();
 });
