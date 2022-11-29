@@ -1,7 +1,7 @@
 class ThemesController {
+  #currentThemeIndex;
   #themes;
   #localStorageKey;
-  #currentThemeIndex;
 
   constructor(themes, localStorageKey) {
     this.#currentThemeIndex = Number(localStorage.getItem(localStorageKey));
