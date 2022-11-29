@@ -30,12 +30,12 @@ const setSwitcherBtnPositon = (index) => {
 switcher.addEventListener("click", () => {
   themesController.switchToNextTheme();
   themesController.saveLastTheme();
-  setSwitcherBtnPositon(themesController.currentThemeIndex);
+  setSwitcherBtnPositon(themesController.getCurrentThemeIndex());
 });
 
 window.addEventListener("load", () => {
-  themesController.setCurrentTheme();
-  setSwitcherBtnPositon(themesController.currentThemeIndex);
+  themesController.setTheme(themesController.getCurrentThemeIndex());
+  setSwitcherBtnPositon(themesController.getCurrentThemeIndex());
 });
 
 calculatorBody.addEventListener("click", (e) => {
