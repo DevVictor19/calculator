@@ -2,10 +2,11 @@ import "./styles.css";
 import { themes } from "./js/themes";
 
 import ThemesController from "./js/themesController";
-
-import { handleBtnInputValue } from "./js/calculator";
+import Calculator from "./js/calculator";
 
 const themesController = new ThemesController(themes, "lastIndexTheme");
+const calculator = new Calculator(document.getElementById("displayText"));
+
 const switcher = document.getElementById("switcher");
 const calculatorBody = document.getElementById("calculatorBody");
 
@@ -40,6 +41,5 @@ window.addEventListener("load", () => {
 
 calculatorBody.addEventListener("click", (e) => {
   if (e.target === calculatorBody) return;
-
-  handleBtnInputValue(e.target.innerText);
+  calculator.handleInput(e.target.innerText);
 });
