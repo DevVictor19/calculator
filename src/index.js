@@ -8,7 +8,6 @@ const themesController = new ThemesController(themes, "lastIndexTheme");
 const calculator = new Calculator(document.getElementById("displayText"));
 
 const switcher = document.getElementById("switcher");
-const calculatorBody = document.getElementById("calculatorBody");
 
 const setSwitcherBtnPositon = (index) => {
   let style = null;
@@ -39,7 +38,27 @@ window.addEventListener("load", () => {
   setSwitcherBtnPositon(themesController.getCurrentThemeIndex());
 });
 
-calculatorBody.addEventListener("click", (e) => {
-  if (e.target === calculatorBody) return;
-  calculator.handleInput(e.target.innerText);
+const calculatorButtons = document.querySelectorAll(".calculator-body__btn");
+const calculatorDelButton = document.querySelector(".calculator-body__del");
+const calculatorResetButton = document.querySelector(".calculator-body__reset");
+const calculatorEqualsButton = document.querySelector(
+  ".calculator-body__equals"
+);
+
+calculatorButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    calculator.append(e.target.innerText);
+  });
+});
+
+calculatorDelButton.addEventListener("click", () => {
+  calculator.delete();
+});
+
+calculatorResetButton.addEventListener("click", () => {
+  calculator.reset();
+});
+
+calculatorEqualsButton.addEventListener("click", () => {
+  calculator.resolve();
 });

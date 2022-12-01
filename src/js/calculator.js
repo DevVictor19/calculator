@@ -5,52 +5,31 @@ export class Calculator {
     this.#displayElement = displayElement;
   }
 
-  handleInput(value) {
-    switch (value) {
-      case "DEL":
-        this.#delete();
-        break;
-      case "RESET":
-        this.#reset();
-        break;
-      case "=":
-        this.#resolve();
-        break;
-      default:
-        this.#append(value);
-        break;
-    }
-  }
-
-  #insert(value) {
-    this.#displayElement.innerText = value;
-  }
-
-  #append(value) {
+  append(value) {
     const updatedDisplay = this.#displayElement.innerText + value;
     const maxLength = window.innerWidth > 540 ? 15 : 10;
     const displayTextLength = updatedDisplay.length;
 
     if (displayTextLength >= maxLength) return;
 
-    // validar zeros antes de numeros
     // validar .
     // validar operadores
+    // validar zeros antes de numeros
 
     this.#insert(updatedDisplay);
   }
 
-  #reset() {
+  reset() {
     this.#insert("");
   }
 
-  #delete() {
+  delete() {
     let str = this.#displayElement.innerText;
     str = str.slice(0, str.length - 1);
     this.#insert(str);
   }
 
-  #resolve() {
+  resolve() {
     const expression = this.#displayElement.innerText.replace("x", "*");
 
     if (/[\+\-\*\/]/.test(expression) && expression.length === 1) return;
@@ -63,6 +42,10 @@ export class Calculator {
     }
 
     this.#insert(result);
+  }
+
+  #insert(value) {
+    this.#displayElement.innerText = value;
   }
 }
 
