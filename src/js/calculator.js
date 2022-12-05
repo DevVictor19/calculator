@@ -1,3 +1,6 @@
+import { splitExpression } from "./utils/splitExpression";
+import { clearZerosBeforeDigits } from "./utils/clearZerosBeforeDigits";
+
 export class Calculator {
   #displayElement;
 
@@ -6,15 +9,27 @@ export class Calculator {
   }
 
   append(value) {
-    const updatedDisplay = this.#displayElement.innerText + value;
+    let updatedDisplay = this.#displayElement.innerText + value;
     const maxLength = window.innerWidth > 540 ? 15 : 10;
     const displayTextLength = updatedDisplay.length;
 
     if (displayTextLength >= maxLength) return;
 
-    // validar .
-    // validar operadores
-    // validar zeros antes de numeros
+    const hasTwoDotsInSameNumber = /\d+\.\d+\./.test(updatedDisplay);
+    const hasConsecutiveDots = /\.{2,}/.test(updatedDisplay);
+    const startsWithDot = /\D\./.test(updatedDisplay);
+
+    if (hasTwoDotsInSameNumber || hasConsecutiveDots || startsWithDot) return;
+
+    const hasConsecutiveOperators = /[\+\-\x\/]{2,}/.test(updatedDisplay);
+
+    if (hasConsecutiveOperators) return;
+
+    if (updatedDisplay.includes("0")) {
+      updatedDisplay = splitExpression(updatedDisplay)
+        .map(clearZerosBeforeDigits)
+        .join("");
+    }
 
     this.#insert(updatedDisplay);
   }
