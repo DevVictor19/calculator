@@ -1,50 +1,64 @@
-import "./styles/main.css";
+import "./styles.css";
+import { themes } from "./js/themes";
 
-import {
-  switchToNextTheme,
-  setTheme,
-  currentThemeIndex,
-} from "./js/themeSwitch";
+import ThemesController from "./js/themesController";
+import Calculator from "./js/calculator";
 
-import { handleBtnInputValue } from "./js/calculator";
-
-import {
-  playBtnSoundEffect,
-  playSwitchThemeSoundEffect,
-} from "./js/playSoundEffects";
+const themesController = new ThemesController(themes, "lastIndexTheme");
+const calculator = new Calculator(document.getElementById("displayText"));
 
 const switcher = document.getElementById("switcher");
 
-// switcher click event
+const setSwitcherBtnPositon = (index) => {
+  let style = null;
+
+  switch (index) {
+    case 0:
+      style = "flex-start";
+      break;
+    case 1:
+      style = "center";
+      break;
+    case 2:
+      style = "flex-end";
+      break;
+  }
+
+  switcher.style.justifyContent = style;
+};
+
 switcher.addEventListener("click", () => {
-  switchToNextTheme();
-  setSwitcherBtnPositon(currentThemeIndex);
-  playSwitchThemeSoundEffect();
-  localStorage.setItem("lastIndexTheme", currentThemeIndex);
+  themesController.switchToNextTheme();
+  themesController.saveLastTheme();
+  setSwitcherBtnPositon(themesController.getCurrentThemeIndex());
 });
 
-function setSwitcherBtnPositon(index) {
-  const switcherBtnPositions = {
-    0: "flex-start",
-    1: "center",
-    2: "flex-end",
-  };
-
-  switcher.style.justifyContent = switcherBtnPositions[index];
-}
-
-// load last theme on screen load
 window.addEventListener("load", () => {
-  setTheme(currentThemeIndex);
-  setSwitcherBtnPositon(currentThemeIndex);
+  themesController.setTheme(themesController.getCurrentThemeIndex());
+  setSwitcherBtnPositon(themesController.getCurrentThemeIndex());
 });
 
-const calculatorBody = document.getElementById("calculatorBody");
+const calculatorButtons = document.querySelectorAll(".calculator-body__btn");
+const calculatorDelButton = document.querySelector(".calculator-body__del");
+const calculatorResetButton = document.querySelector(".calculator-body__reset");
+const calculatorEqualsButton = document.querySelector(
+  ".calculator-body__equals"
+);
 
-calculatorBody.addEventListener("click", (e) => {
-  if (e.target === calculatorBody) return;
+calculatorButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    calculator.append(e.target.innerText);
+  });
+});
 
-  handleBtnInputValue(e.target.innerText);
+calculatorDelButton.addEventListener("click", () => {
+  calculator.delete();
+});
 
-  playBtnSoundEffect();
+calculatorResetButton.addEventListener("click", () => {
+  calculator.reset();
+});
+
+calculatorEqualsButton.addEventListener("click", () => {
+  calculator.resolve();
 });
